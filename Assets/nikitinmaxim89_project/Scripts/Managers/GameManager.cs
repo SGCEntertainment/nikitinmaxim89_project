@@ -7,7 +7,8 @@ using System;
 public class GameManager : MonoBehaviour
 {
     bool IsPhotoMaking;
-    const float timeOffset = 0.25f;
+
+    [SerializeField, Range(0.25f, 1.25f)] float timeOffset = 0.25f;
 
     AndroidJavaClass jcUnityPlayer;
     AndroidJavaObject joUnityActivity;
