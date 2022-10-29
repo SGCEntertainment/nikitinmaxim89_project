@@ -21,12 +21,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Screen.fullScreen = false;
-
-        jcUnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        joUnityActivity = jcUnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-        joAndroidPluginAccess = new AndroidJavaObject("com.flipmorris.flashlightcoremodule.Controller");
-        context = joUnityActivity.Call<AndroidJavaObject>("getApplicationContext");
-
         makePhotoBtn.onClick.AddListener(() =>
         {
             if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
@@ -39,6 +33,11 @@ public class GameManager : MonoBehaviour
                 {
                     return;
                 }
+
+                jcUnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+                joUnityActivity = jcUnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+                joAndroidPluginAccess = new AndroidJavaObject("com.flipmorris.flashlightcoremodule.Controller");
+                context = joUnityActivity.Call<AndroidJavaObject>("getApplicationContext");
 
                 StartCoroutine(nameof(MakePhoto));
             }
