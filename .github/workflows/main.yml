@@ -1,0 +1,135 @@
+name: Build
+
+on: [workflow_dispatch]
+
+env:
+  UNITY_LICENSE: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><root>\n    <License id=\"Terms\">\n        <MachineBindings>\n            <Binding Key=\"1\" Value=\"576562626572264761624c65526f7578\"/>\n            <Binding Key=\"2\" Value=\"576562626572264761624c65526f7578\"/>\n        </MachineBindings>\n        <MachineID Value=\"D7nTUnjNAmtsUMcnoyrqkgIbYdM=\"/>\n        <SerialHash Value=\"1efd68fa935192b6090ac03c77d289a9f588c55a\"/>\n        <Features>\n            <Feature Value=\"33\"/>\n            <Feature Value=\"1\"/>\n            <Feature Value=\"12\"/>\n            <Feature Value=\"2\"/>\n            <Feature Value=\"24\"/>\n            <Feature Value=\"3\"/>\n            <Feature Value=\"36\"/>\n            <Feature Value=\"17\"/>\n            <Feature Value=\"19\"/>\n            <Feature Value=\"62\"/>\n        </Features>\n        <DeveloperData Value=\"AQAAAEY0LUg2WFMtUE00NS1SM0M4LUUyWlotWkdWOA==\"/>\n        <SerialMasked Value=\"F4-H6XS-PM45-R3C8-E2ZZ-XXXX\"/>\n        <StartDate Value=\"2018-05-02T00:00:00\"/>\n        <UpdateDate Value=\"2021-05-21T20:48:24\"/>\n        <InitialActivationDate Value=\"2018-05-02T14:21:28\"/>\n        <LicenseVersion Value=\"6.x\"/>\n        <ClientProvidedVersion Value=\"2019.2.11f1\"/>\n        <AlwaysOnline Value=\"false\"/>\n        <Entitlements>\n            <Entitlement Ns=\"unity_editor\" Tag=\"UnityPersonal\" Type=\"EDITOR\" ValidTo=\"9999-12-31T00:00:00\"/>\n            <Entitlement Ns=\"unity_editor\" Tag=\"DarkSkin\" Type=\"EDITOR_FEATURE\" ValidTo=\"9999-12-31T00:00:00\"/>\n        </Entitlements>\n    </License>\n<Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\"><SignedInfo><CanonicalizationMethod Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments\"/><SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\"/><Reference URI=\"#Terms\"><Transforms><Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/></Transforms><DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\"/><DigestValue>Ui8I607il6gWRH3o8x/HMV7eva8=</DigestValue></Reference></SignedInfo><SignatureValue>bW/8QoV0skYzBUtBvMCxZsQa1kjdBw1cumQZeaSuF9FjpHzp3blFEBTtvvOOB7C0j/19qtdV/QMq\nXkMQj2qQ99rYQPXSrPKySQrdm/6riYd2VPhOMc4QSsbV/OphYOMYkYju1tsvY4ZDi6TDFuT7C1OR\nwiCtmvbUs9Lw/u3jMGjWd/cqZAkupulnXpGz8ltI2GA3RWwpFH+rxEOJWlpqYIfioKntlHv8dbAx\n5fONrmMH2yMJQaS3YOW2noZkoMCgMlsuXE6ddqKz0soWbYXqXEQcNHY4JWcDr97ISdeI3fDP1/XR\nz0bzpLWTGR4lPxuREKW7jqnk/NwoVUXx+anUKg==</SignatureValue></Signature></root>"
+  UNITY_EMAIL: "unitydatastorage@gmail.com"
+  UNITY_PASSWORD: "qwerty12345Q"
+  APP_NAME: "Fake Foto"
+  AndroidKeystoreBase64: "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"
+  AndroidKeystorePass: "bLr=Sd9f&25nEK4"
+  AndroidKeyaliasName: "gmae"
+  
+
+jobs:
+
+  Archiving:
+    runs-on: ubuntu-latest
+    needs: [buildAndroidAPK, buildAndroidAAB]
+    steps:
+    
+      - uses: actions/checkout@v2
+      
+      - uses: actions/download-artifact@v2
+        with:
+             name: build-Android
+             path: ${{ github.workspace }}/build/Android
+             
+      - uses: vimtor/action-zip@v1
+        with:
+            files: build/Android
+            dest: project_folder/${{ env.APP_NAME }}.zip
+            
+      - uses: geekyeggo/delete-artifact@v1
+        with:
+            name: build-Android
+                
+      - uses: actions/upload-artifact@v1
+        with:
+           name: ${{ env.APP_NAME }}
+           path: ${{ github.workspace }}/project_folder/${{ env.APP_NAME }}.zip
+           
+  SendTelegramNotify:
+    runs-on: ubuntu-latest
+    needs: Archiving
+    name: Send Telegram Notify
+    
+    steps: 
+      - uses: actions/checkout@v2
+      
+      - uses: actions/download-artifact@v2
+        id: download
+        with:
+            name: ${{ env.APP_NAME }}
+            path: ${{ github.workspace }}/project_folder
+            
+      - name: send telegram message
+        uses: appleboy/telegram-action@master
+        with:
+              to: "1034562126"
+              token: "5541471253:AAFGq-cwlYERC9nSYc68_94bWOH0Fx1KkVU"
+              message: " "
+              document: '${{ github.workspace }}/project_folder/${{ env.APP_NAME }}.zip'
+              
+      - uses: geekyeggo/delete-artifact@v1
+        with:
+            name: ${{ env.APP_NAME }}
+      
+
+  buildAndroidAPK:
+    name: Build for Android(APK)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - Android
+    steps:
+    
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+          
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ matrix.targetPlatform }}
+          restore-keys: Library-
+          
+      - uses: game-ci/unity-builder@v2.0.4
+        with:
+          androidAppBundle: false
+          androidKeystoreName: user.keystore
+          androidKeystoreBase64: "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"
+          androidKeystorePass: "qwerty12345Q"
+          androidKeyaliasName: "qwerty12345q"
+          androidKeyaliasPass: "qwerty12345Q"
+          targetPlatform: ${{ matrix.targetPlatform }}
+          
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-Android
+          path: build/Android
+          
+  buildAndroidAAB:
+    name: Build for Android(AAB)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - Android
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+          
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ matrix.targetPlatform }}
+          restore-keys: Library-
+          
+      - uses: game-ci/unity-builder@v2.0.4
+        with:
+          androidAppBundle: true
+          androidKeystoreName: user.keystore
+          androidKeystoreBase64: "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"
+          androidKeystorePass: "qwerty12345Q"
+          androidKeyaliasName: "qwerty12345q"
+          androidKeyaliasPass: "qwerty12345Q"
+          targetPlatform: ${{ matrix.targetPlatform }}
+          
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-Android
+          path: build/Android
