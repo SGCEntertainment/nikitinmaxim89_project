@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
     public static Action OnPhotoStartMaking { get; set; } = delegate { };
     public static Action OnPhotoFinishMaking { get; set; } = delegate { };
 
+    private void OnDestroy()
+    {
+        OnPhotoStartMaking = null;
+        OnPhotoFinishMaking = null;
+    }
+
     private void Start()
     {
         Screen.fullScreen = false;
